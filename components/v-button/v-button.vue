@@ -48,7 +48,7 @@
 		},
 		data() {
 			return {
-				isClick:false,
+				isClick: false,
 			}
 		},
 		computed: {
@@ -60,11 +60,11 @@
 		methods: {
 			/**click事件*/
 			click() {
-				this.isClick=true
-				let timeout=setTimeout(()=>{
-					this.isClick=false
+				this.isClick = true
+				let timeout = setTimeout(() => {
+					this.isClick = false
 					clearTimeout(timeout)
-				},500)
+				}, 500)
 				this.$emit('click')
 			},
 			/**获取用户信息 openType为getUserInfo时有效*/
