@@ -51,11 +51,11 @@
 		mounted() {
 			this.init()
 		},
-		computed:{
-			getHeight(){
-				let height=Number(this.$props.height)
-				if(height<=0)return 200
-				if(height>=350)return 350
+		computed: {
+			getHeight() {
+				let height = Number(this.$props.height)
+				if (height <= 0) return 200
+				if (height >= 350) return 350
 			}
 		},
 		methods: {
@@ -113,8 +113,8 @@
 			clearSign() {
 				this.canvas.draw()
 			},
-			quitSign(){
-				this.$emit('input',false)
+			quitSign() {
+				this.$emit('input', false)
 			},
 			confirmSign() {
 				uni.canvasToTempFilePath({
@@ -122,7 +122,7 @@
 					success: (res) => {
 						this.canvas.draw()
 						this.$emit('confirm', res.tempFilePath)
-						this.$emit('input',false)
+						this.$emit('input', false)
 					}
 				})
 			}

@@ -37,7 +37,7 @@
 				type: [String, Number],
 				default: 86400
 			},
-			number:{
+			number: {
 				type: [String, Number],
 				default: 60
 			},
@@ -57,7 +57,7 @@
 				minute: 0,
 				second: 0,
 				countSeconds: 0,
-				countNumber:0,
+				countNumber: 0,
 				countDownTimer: null
 			}
 		},
@@ -65,39 +65,39 @@
 			this.startTimer()
 		},
 		beforeDestroy() {
-			this.countDownTimer=null
+			this.countDownTimer = null
 		},
 		methods: {
 			/**开始倒计时*/
 			startTimer() {
-				let mode=this.$props.mode
+				let mode = this.$props.mode
 				this.countSeconds = Number(this.$props.seconds)
 				this.countNumber = Number(this.$props.number)
 				if (!this.countDownTimer) {
-					if(mode=='time'){
+					if (mode == 'time') {
 						this.countDownTimer = setInterval(() => {
 							this.countSeconds -= 1
 							this.timeCountDown()
-							if(this.countSeconds==0){
+							if (this.countSeconds == 0) {
 								this.$emit('finish')
 								clearInterval(this.countDownTimer)
 							}
 						}, 1000)
-					}else{
+					} else {
 						this.countDownTimer = setInterval(() => {
 							this.countNumber -= 1
-							if(this.countNumber==0){
+							if (this.countNumber == 0) {
 								this.$emit('finish')
 								clearInterval(this.countDownTimer)
 							}
-						},1000)
+						}, 1000)
 					}
 				}
 			},
 			/**计算时间*/
 			timeCountDown() {
 				let day = parseInt(this.countSeconds / (24 * 60 * 60))
-				this.day= day
+				this.day = day
 				let hour = parseInt(this.countSeconds / (60 * 60) % 24);
 				this.hour = hour < 10 ? "0" + hour : hour
 				let minute = parseInt(this.countSeconds / 60 % 60);

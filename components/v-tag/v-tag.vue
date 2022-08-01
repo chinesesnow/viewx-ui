@@ -1,5 +1,6 @@
 <template>
-	<view class="v-tag" @click="click" :style="{borderRadius:radius+'px',borderColor:borderColor,background:background,fontSize:size+'px',color:setColor}">
+	<view class="v-tag" @click="click"
+		:style="{borderRadius:radius+'px',borderColor:borderColor,background:background,fontSize:size+'px',color:setColor}">
 		<text>{{text}}</text>
 		<view class="number" v-if="parseInt(number)>0"><span>{{setNumber}}</span></view>
 	</view>

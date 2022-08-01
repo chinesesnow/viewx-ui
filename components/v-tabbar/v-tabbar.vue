@@ -1,19 +1,24 @@
 <template>
-	<view class="v-tabbar" :style="{background:background,borderTop:border?'2upx solid #C0C0C0':'',paddingBottom:safeArea?'15px':''}">
-		<view @click="tabItemClick(index)" class="v-tabbar-item" v-for="(item,index) in tabsList" :key="index" :style="{width:tabWidth}">
-			<v-image :src="selectIndex==index?item.selectedIconPath:item.iconPath" width="26" height="26"></v-image>
-			<view class="label" :style="{color:selectIndex==index?selectedColor:color}">{{item[tabKeyName]}}</view>
-			<view class="number" :style="{background:numberTagBg}" v-if="item.number>0"><text>{{item.number}}</text></view>
-		</view>
-	</view>
+	<cover-view class="v-tabbar"
+		:style="{background:background,borderTop:border?'2upx solid #C0C0C0':'',paddingBottom:safeArea?'15px':''}">
+		<cover-view @click="tabItemClick(index)" class="v-tabbar-item" v-for="(item,index) in tabsList" :key="index"
+			:style="{width:tabWidth}">
+			<cover-image :src="selectIndex==index?item.selectedIconPath:item.iconPath"
+				style="width: 26px;height: 26px;"></cover-image>
+			<cover-view class="label" :style="{color:selectIndex==index?selectedColor:color}">{{item[tabKeyName]}}
+			</cover-view>
+			<cover-view class="number" :style="{background:numberTagBg}" v-if="item.number>0">
+				<text>{{item.number}}</text></cover-view>
+		</cover-view>
+	</cover-view>
 </template>
 
 <script>
 	export default {
 		props: {
-			border:{
-				type:Boolean,
-				default:true
+			border: {
+				type: Boolean,
+				default: true
 			},
 			selectedIndex: {
 				type: [String, Number],
@@ -23,7 +28,7 @@
 				type: String,
 				default: '#FFFFFF'
 			},
-			numberTagBg:{
+			numberTagBg: {
 				type: String,
 				default: '#FF0000'
 			},
@@ -33,7 +38,7 @@
 					return []
 				}
 			},
-			keyName:{
+			keyName: {
 				type: String,
 				default: ''
 			},
@@ -45,35 +50,36 @@
 				type: String,
 				default: '#FF0000'
 			},
-			safeArea:{
-				type:Boolean,
-				default:false
+			safeArea: {
+				type: Boolean,
+				default: false
 			}
 		},
-		data(){
-			return{
-				selectIndex:uni.getStorageSync('tabBarSelectIndex')?uni.getStorageSync('tabBarSelectIndex'):this.selectedIndex,
-				tabsList:uni.getStorageSync('tabBarList')?uni.getStorageSync('tabBarList'):this.list,
-				tabKeyName:uni.getStorageSync('tabBarKeyName')?uni.getStorageSync('tabBarKeyName'):this.keyName
+		data() {
+			return {
+				selectIndex: uni.getStorageSync('tabBarSelectIndex') ? uni.getStorageSync('tabBarSelectIndex') : this
+					.selectedIndex,
+				tabsList: uni.getStorageSync('tabBarList') ? uni.getStorageSync('tabBarList') : this.list,
+				tabKeyName: uni.getStorageSync('tabBarKeyName') ? uni.getStorageSync('tabBarKeyName') : this.keyName
 			}
 		},
-		computed:{
-			tabWidth(){
-				uni.setStorageSync('tabBarSelectIndex',this.selectIndex)
-				uni.setStorageSync('tabBarList',this.tabsList)
-				uni.setStorageSync('tabBarKeyName',this.tabKeyName)
-				return (100/this.list.length)+'%'
+		computed: {
+			tabWidth() {
+				uni.setStorageSync('tabBarSelectIndex', this.selectIndex)
+				uni.setStorageSync('tabBarList', this.tabsList)
+				uni.setStorageSync('tabBarKeyName', this.tabKeyName)
+				return (100 / this.list.length) + '%'
 			}
 		},
 		methods: {
 			/**tabItem点击事件*/
 			tabItemClick(index) {
-				uni.setStorageSync('tabBarSelectIndex',index)
-				let tabs=this.tabsList
-				let path=tabs[index].pagePath
+				uni.setStorageSync('tabBarSelectIndex', index)
+				let tabs = this.tabsList
+				let path = tabs[index].pagePath
 				this.$emit('change', index)
 				uni.redirectTo({
-					url:path
+					url: path
 				})
 			}
 		}
@@ -91,7 +97,6 @@
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
-		z-index: 6666;
 	}
 
 	.v-tabbar .v-tabbar-item {
@@ -106,7 +111,7 @@
 	.v-tabbar .v-tabbar-item .label {
 		font-size: 20upx;
 	}
-	
+
 	.v-tabbar .v-tabbar-item .number {
 		width: 40upx;
 		height: 40upx;

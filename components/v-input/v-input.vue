@@ -1,7 +1,6 @@
 <template>
-	<input id="v-input" class="v-input" :type="type" :value="value" :disabled="disabled"
-		:placeholder="placeholder" :placeholder-style="placeholderStyle"
-		:style="{border:border?'1px solid':'none',borderColor:borderColor,fontSize:fontSize+'px',
+	<input id="v-input" class="v-input" :type="type" :value="value" :disabled="disabled" :placeholder="placeholder"
+		:placeholder-style="placeholderStyle" :style="{border:border?'1px solid':'none',borderColor:borderColor,fontSize:fontSize+'px',
 		color:disabled?'#999999':color,textAlign:textAlign,background:disabled?'#F7F7F7':'',borderRadius:radius+'px'}"
 		@focus="focus" @blur="blur" @input="input"></input>
 </template>
@@ -41,7 +40,7 @@
 				type: String,
 				default: '请输入'
 			},
-			placeholderStyle:{
+			placeholderStyle: {
 				type: String,
 				default: "font-size:13px;color:#999999"
 			},
@@ -58,16 +57,15 @@
 				default: 'left'
 			}
 		},
-		computed:{
-		},
+		computed: {},
 		methods: {
 			/**输入框聚焦时触发*/
 			focus(e) {
-				this.$emit('focus',e)
+				this.$emit('focus', e)
 			},
 			/**输入框失去焦点时触发*/
 			blur(e) {
-				this.$emit('blur',e)
+				this.$emit('blur', e)
 			},
 			/**正在输入时触发*/
 			input(e) {

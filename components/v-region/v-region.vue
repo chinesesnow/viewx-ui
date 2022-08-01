@@ -22,37 +22,41 @@
 
 <script>
 	import regions from '../v-region/regions.js'
-	export default{
-		model:{
-			prop:'show',
-			event:'input'
+	export default {
+		model: {
+			prop: 'show',
+			event: 'input'
 		},
-		props:{
-			show:{
-				type:Boolean,
-				default:false
+		props: {
+			show: {
+				type: Boolean,
+				default: false
 			},
-			indexs:{
+			indexs: {
 				type: Array,
 				default: () => {
 					return [0, 0, 0]
 				}
 			}
 		},
-		data(){
-			return{
-				list:[[],[],[]],
+		data() {
+			return {
+				list: [
+					[],
+					[],
+					[]
+				],
 				lastChangeIndexs: [], //保留上次改变的索引数组
 				changeIndex: 0, //改变的列对应索引
 				eventOpen: true, //change事件调用开关
 				eventOpenTimer: null, //eventOpen设置的定时器
 			}
 		},
-		mounted(){
+		mounted() {
 			this.lastChangeIndexs = this.$props.indexs
 			this.listInit()
 		},
-		methods:{
+		methods: {
 			/**级联数组初始化处理*/
 			listInit() {
 				let indexs = this.$props.indexs
@@ -86,17 +90,20 @@
 				this.$forceUpdate()
 			},
 			/**确定事件*/
-			confirm(){
-				let lastIndexs=this.lastChangeIndexs
-				let province=regions[lastIndexs[0]].label
-				let city=regions[lastIndexs[0]].children[lastIndexs[1]].label
-				let area=regions[lastIndexs[0]].children[lastIndexs[1]].children[lastIndexs[2]].label
-				this.$emit('confirm',{indexs:lastIndexs,values:[province,city,area]})
-				this.$emit('input',false)
+			confirm() {
+				let lastIndexs = this.lastChangeIndexs
+				let province = regions[lastIndexs[0]].label
+				let city = regions[lastIndexs[0]].children[lastIndexs[1]].label
+				let area = regions[lastIndexs[0]].children[lastIndexs[1]].children[lastIndexs[2]].label
+				this.$emit('confirm', {
+					indexs: lastIndexs,
+					values: [province, city, area]
+				})
+				this.$emit('input', false)
 			},
 			/**close事件*/
 			close() {
-				this.$emit('input',false)
+				this.$emit('input', false)
 				this.$emit('close')
 			},
 			/**级联选择器change事件 判断出哪一列改变 就重新设置该列后面所有列的值*/
@@ -130,7 +137,7 @@
 		width: 100%;
 		height: 260px;
 	}
-	
+
 	.cascade-picker-view .item {
 		display: flex;
 		flex-direction: row;

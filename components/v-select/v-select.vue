@@ -1,12 +1,15 @@
 <template>
 	<view>
 		<block v-if="type=='normal'">
-			<picker :range="list" :range-key="keyName" :value="value" :mode="mode" :fields="fields" :start="start" :end="end" @change="change" @cancel="cancel">
-				<view class="label" :style="{fontSize:labelSize+'px',color:labelColor,padding:labelPadding}">{{text}}</view>
+			<picker :range="list" :range-key="keyName" :value="value" :mode="mode" :fields="fields" :start="start"
+				:end="end" @change="change" @cancel="cancel">
+				<view class="label" :style="{fontSize:labelSize+'px',color:labelColor,padding:labelPadding}">{{text}}
+				</view>
 			</picker>
 		</block>
 		<block v-if="type=='cascade'">
-			<view class="label" @click="selectShow=true" :style="{fontSize:labelSize+'px',color:labelColor,padding:labelPadding}">{{text}}</view>
+			<view class="label" @click="selectShow=true"
+				:style="{fontSize:labelSize+'px',color:labelColor,padding:labelPadding}">{{text}}</view>
 		</block>
 		<v-popup :show="selectShow" @close="casecadeClose" @confirm="cascadeConfirm">
 			<picker-view class="cascade-picker-view" @change="cascadeChange" :value="indexs">
@@ -66,7 +69,7 @@
 				default: 'normal'
 			},
 			value: {
-				type: [String, Number,Array],
+				type: [String, Number, Array],
 				default: 0
 			},
 			indexs: {
@@ -75,15 +78,15 @@
 					return [0, 0, 0, 0, 0]
 				}
 			},
-			fields:{
+			fields: {
 				type: String,
 				default: 'day'
 			},
-			start:{
+			start: {
 				type: String,
 				default: ''
 			},
-			end:{
+			end: {
 				type: String,
 				default: ''
 			},
@@ -95,7 +98,7 @@
 				type: String,
 				default: '#000000'
 			},
-			labelPadding:{
+			labelPadding: {
 				type: String,
 				default: '0px 0px 0px 0px'
 			}
@@ -118,12 +121,12 @@
 		},
 		mounted() {
 			this.lastChangeIndexs = this.$props.indexs
-			if(this.type=='cascade'){
+			if (this.type == 'cascade') {
 				this.listInit()
 			}
 		},
 		beforeDestroy() {
-			this.eventOpenTimer=null
+			this.eventOpenTimer = null
 		},
 		methods: {
 			/**级联数组初始化处理*/
@@ -171,14 +174,14 @@
 				this.$emit('cancel')
 			},
 			/**级联选择时close事件*/
-			casecadeClose(){
+			casecadeClose() {
 				this.$emit('cancel')
-				this.selectShow=false
+				this.selectShow = false
 			},
 			/**级联选择器confirm事件*/
-			cascadeConfirm(){
-				this.$emit('confirm',this.lastChangeIndexs)
-				this.selectShow=false
+			cascadeConfirm() {
+				this.$emit('confirm', this.lastChangeIndexs)
+				this.selectShow = false
 			},
 			/**级联选择器change事件 判断出哪一列改变 就重新设置该列后面所有列的值*/
 			cascadeChange(e) {

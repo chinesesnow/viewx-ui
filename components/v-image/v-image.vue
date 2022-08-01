@@ -35,16 +35,16 @@
 		methods: {
 			/**图片点击事件*/
 			click(e) {
-				this.$emit('click',e)
+				this.$emit('click', e)
 			},
 			/**图片加载失败*/
-			error(e){
-				this.$emit('error',e)
+			error(e) {
+				this.$emit('error', e)
 			}
 		}
 	}
 </script>
 
 <style scoped>
-	
+
 </style>

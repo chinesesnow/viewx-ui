@@ -15,7 +15,7 @@
 <script>
 	import collapseTrans from '@/uni_modules/viewx-ui/components/v-collapse/transition/collapseTransition.js'
 	export default {
-		components:{
+		components: {
 			collapseTrans
 		},
 		props: {
@@ -36,7 +36,7 @@
 		methods: {
 			collapseClick() {
 				this.isCollapse = !this.isCollapse
-				this.$emit('click',this.isCollapse)
+				this.$emit('click', this.isCollapse)
 			}
 		}
 	}

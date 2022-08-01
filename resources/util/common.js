@@ -27,9 +27,9 @@ export default {
 		if (type == 0) {
 			return Y + '-' + M + '-' + D + ' ' + H + ':' + Mi + ':' + S
 		} else if (type == 1) {
-			return Y + '-' + M + '-' + D;
+			return Y + '-' + M + '-' + D
 		} else if (type == 2) {
-			return H + ':' + Mi + ':' + S;
+			return H + ':' + Mi + ':' + S
 		} else if (type == 3) {
 			return M + '/' + D
 		}

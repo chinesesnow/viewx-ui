@@ -27,8 +27,8 @@
 				return name
 			}
 		},
-		methods:{
-			iconClick(){
+		methods: {
+			iconClick() {
 				this.$emit('click')
 			}
 		}
@@ -37,15 +37,15 @@
 
 <style scoped>
 	@font-face {
-	  font-family: 'viewx-iconfont'; 
-	  src: url('https://at.alicdn.com/t/font_3389464_7yw4wfjj2f3.ttf?t=1652233208795') format('truetype');
+		font-family: 'viewx-iconfont';
+		src: url('https://at.alicdn.com/t/font_3389464_7yw4wfjj2f3.ttf?t=1652233208795') format('truetype');
 	}
-	
+
 	.v-icons {
-	  font-family: "viewx-iconfont" !important;
-	  font-size: 26px;
-	  font-style: normal;
-	  -webkit-font-smoothing: antialiased;
-	  -moz-osx-font-smoothing: grayscale;
+		font-family: "viewx-iconfont" !important;
+		font-size: 26px;
+		font-style: normal;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 </style>

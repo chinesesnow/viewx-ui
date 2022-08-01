@@ -7,43 +7,43 @@
 </template>
 
 <script>
-	export default{
-		props:{
-			lineBg:{
-				type:String,
-				default:'#ff5500'
+	export default {
+		props: {
+			lineBg: {
+				type: String,
+				default: '#ff5500'
 			},
-			color:{
-				type:String,
-				default:'#0087FD'
+			color: {
+				type: String,
+				default: '#0087FD'
 			},
-			size:{
-				type:[String,Number],
-				default:10
+			size: {
+				type: [String, Number],
+				default: 10
 			},
-			text:{
-				type:String,
-				default:'分割线'
+			text: {
+				type: String,
+				default: '分割线'
 			},
 		}
 	}
 </script>
 
 <style scoped>
-	.v-split-line{
+	.v-split-line {
 		width: 100%;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
 	}
-	
-	.v-split-line .line{
+
+	.v-split-line .line {
 		width: 40%;
 		height: 1px;
 	}
-	
-	.v-split-line .text{
+
+	.v-split-line .text {
 		padding: 0 20px;
 		background: #FFFFFF;
 		text-align: center;

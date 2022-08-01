@@ -1,7 +1,6 @@
 <template>
 	<view class="v-popup" :class="{popupCenter:show&&type=='center'}">
-		<view class="overlay" @click="close"
-			:style="{opacity:show?1:0,visibility:show?'visible':'hidden'}"></view>
+		<view class="overlay" @click="close" :style="{opacity:show?1:0,visibility:show?'visible':'hidden'}"></view>
 		<view class="bottom" v-if="type=='bottom'"
 			:style="{transform:show?'translateY(0)':'translateY(100%)',borderTopLeftRadius:radius+'px',borderTopRightRadius:radius+'px'}">
 			<view class="header" v-if="headerShow">
@@ -36,9 +35,9 @@
 
 <script>
 	export default {
-		model:{
-			prop:'show',
-			event:'input'
+		model: {
+			prop: 'show',
+			event: 'input'
 		},
 		props: {
 			type: {
@@ -61,12 +60,12 @@
 		methods: {
 			/**取消关闭*/
 			close() {
-				this.$emit('input',false)
-				this.$emit('close',false)
+				this.$emit('input', false)
+				this.$emit('close', false)
 			},
 			/**确定关闭*/
-			confirm(){
-				this.$emit('input',false)
+			confirm() {
+				this.$emit('input', false)
 				this.$emit('confirm')
 			}
 		}

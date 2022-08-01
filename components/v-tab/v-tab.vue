@@ -4,7 +4,8 @@
 			@click="tabClick(tindex,$event)">
 			<view></view>
 			<view class="label" :style="{color:index==tindex?activeColor:color}">
-				{{keyName==''?item:item[keyName='']}}</view>
+				{{keyName==''?item:item[keyName='']}}
+			</view>
 			<view class="line" :style="{width:lineWidth,background:index==tindex?activeColor:'#FFFFFF'}"></view>
 		</view>
 	</view>
@@ -72,8 +73,8 @@
 				let scrollBox = document.getElementsByClassName("v-tab")
 				let scrollL = scrollBox[0].scrollLeft
 				if (currLeft > halfWidth || tabRight > halfWidth) {
-					let distance=scrollL + (currLeft - halfWidth)
-					scrollBox[0].scrollLeft=distance
+					let distance = scrollL + (currLeft - halfWidth)
+					scrollBox[0].scrollLeft = distance
 				}
 			}
 		}
@@ -85,7 +86,7 @@
 		width: 100%;
 		white-space: nowrap;
 		overflow-x: auto;
-		scroll-behavior:smooth 
+		scroll-behavior: smooth
 	}
 
 	.v-tab::-webkit-scrollbar {

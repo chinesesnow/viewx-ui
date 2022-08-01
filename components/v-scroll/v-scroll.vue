@@ -1,6 +1,7 @@
 <template>
-	<scroll-view :scroll-x="scrollX" :scroll-y="scrollY" :scroll-with-animation="true" :scroll-into-view="scrollTo" class="v-scroll"
-		:style="{height:height+'px'}" @scrolltoupper="toUpper" @scrolltolower="toLower" @scroll="scroll">
+	<scroll-view :scroll-x="scrollX" :scroll-y="scrollY" :scroll-with-animation="true" :scroll-into-view="scrollTo"
+		class="v-scroll" :style="{height:height+'px'}" @scrolltoupper="toUpper" @scrolltolower="toLower"
+		@scroll="scroll">
 		<slot></slot>
 	</scroll-view>
 </template>

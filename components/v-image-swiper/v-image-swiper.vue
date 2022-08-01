@@ -1,6 +1,7 @@
 <template>
 	<swiper @change="change" class="v-image-swiper" :style="{height:height+'px'}" :current="index" :autoplay="auto"
-		:duration="duration" :indicator-dots="dotsShow" :interval="interval" :vertical="vertical" :previous-margin="previousMargin+'px'" :next-margin="nextMargin+'px'">
+		:duration="duration" :indicator-dots="dotsShow" :interval="interval" :vertical="vertical"
+		:previous-margin="previousMargin+'px'" :next-margin="nextMargin+'px'">
 		<swiper-item @click="click(index)" class="v-image-swiper-item" v-for="(item,index) in list" :key="index">
 			<image class="image" :style="{height:height+'px',borderRadius:radius+'px'}"
 				:src="`${keyName==''?item:item[keyName+'']}`"></image>
@@ -36,7 +37,7 @@
 				type: Boolean,
 				default: true
 			},
-			dotsShow:{
+			dotsShow: {
 				type: Boolean,
 				default: false
 			},
@@ -52,11 +53,11 @@
 				type: [Number, String],
 				default: 5
 			},
-			previousMargin:{
+			previousMargin: {
 				type: [Number, String],
 				default: 0
 			},
-			nextMargin:{
+			nextMargin: {
 				type: [Number, String],
 				default: 0
 			}
@@ -67,7 +68,7 @@
 				this.$emit('click', index)
 			},
 			/**change事件*/
-			change(e){
+			change(e) {
 				this.$emit('change', e.detail.current)
 			}
 		}

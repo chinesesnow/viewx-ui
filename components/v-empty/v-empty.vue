@@ -6,37 +6,37 @@
 </template>
 
 <script>
-	export default{
-		props:{
-			icon:{
-				type:String,
-				default:'alarm'
+	export default {
+		props: {
+			icon: {
+				type: String,
+				default: 'alarm'
 			},
-			iconColor:{
-				type:String,
-				default:'#DDDDDD'
+			iconColor: {
+				type: String,
+				default: '#DDDDDD'
 			},
-			title:{
-				type:String,
-				default:'什么也没有~'
+			title: {
+				type: String,
+				default: '什么也没有~'
 			},
-			titleColor:{
-				type:String,
-				default:'#DDDDDD'
+			titleColor: {
+				type: String,
+				default: '#DDDDDD'
 			},
-			top:{
-				type:String,
-				default:'100'
+			top: {
+				type: String,
+				default: '100'
 			}
 		},
-		methods:{
-			
+		methods: {
+
 		}
 	}
 </script>
 
 <style scoped>
-	.v-empty{
+	.v-empty {
 		width: 100%;
 		height: 120px;
 		display: flex;
