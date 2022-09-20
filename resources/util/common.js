@@ -1,9 +1,11 @@
 export default {
+	
 	/**获取当前时间UNIX时间戳*/
 	getUnixTimestamp() {
 		let timestamp = Date.parse(new Date()) / 1000
 		return timestamp
 	},
+	
 	/**unix时间戳转换成普通时间*/
 	unixTimestamp2Date(timestamp = 0, type = 0) {
 		if (timestamp <= 0) {
@@ -34,6 +36,7 @@ export default {
 			return M + '/' + D
 		}
 	},
+	
 	/**获得多少天以后的日期*/
 	getDateByAddDays(addDayCount = 0) {
 		let dat = new Date()
@@ -49,9 +52,23 @@ export default {
 		}
 		return y + "-" + m + "-" + d
 	},
+	
 	/**获取随机数*/
 	getRandom(max) {
 		return Math.floor(Math.random() * max)
+	},
+	
+	/*获取url里面的参数**/
+	getUrlParam(url) {
+		var s = location.href
+		s = s.replace("?", "?&").split("&");
+		var re = ""
+		for (var i = 0; i < s.length; i++) {
+			if (s[i].indexOf(url + "=") == 0) {
+				re = s[i].replace(url + "=", "")
+			}
+		}
+		return re
 	},
 	
 	/**验证身份证号码*/
@@ -162,16 +179,19 @@ export default {
 		let result = new RegExp(preg, "gim").test(mobile)
 		return result
 	},
+	
 	/**邮箱验证 返回Boolean*/
 	emailCheck(email) {
 		let preg = "^\\w+((-\\w+)|(\.\\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$"
 		let result = new RegExp(preg, "gim").test(email)
 		return result
 	},
+	
 	/**字符串去左右空格*/
 	stringTrim(s) {
 		return s.replace(/(^\s*)|(\s*$)/g, "")
 	},
+	
 	/**提取富文本字符串中的img标签 生成自适应图片的字符串*/
 	getImgSrcfromString(str) {
 		let new_str = str
@@ -187,6 +207,7 @@ export default {
 		}
 		return new_str
 	},
+	
 	/**数组中重复元素删除*/
 	repeatArrayClear(array) {
 		let arr = []
