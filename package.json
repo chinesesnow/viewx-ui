@@ -1,21 +1,16 @@
 {
   "id": "viewx-ui",
   "displayName": "viewx-ui",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "viewx-ui",
   "keywords": [
     "viewx-ui"
 ],
   "repository": "",
   "engines": {
-    "HBuilderX": "^3.1.0"
+    "HBuilderX": "^3.2.10"
   },
-  "dcloudext": {
-    "category": [
-		"viewx-ui",
-        "前端组件",
-        "通用组件"
-    ],
+"dcloudext": {
     "sale": {
       "regular": {
         "price": "0.00"
@@ -28,9 +23,9 @@
       "qq": "1043800169"
     },
     "declaration": {
-      "ads": "",
-      "data": "",
-      "permissions": ""
+      "ads": "无",
+      "data": "无",
+      "permissions": "无"
     },
     "npmurl": ""
   },
@@ -73,8 +68,7 @@
           "钉钉": "y",
           "快手": "y",
           "飞书": "y",
-          "京东": "y",
-          "小红书": "y"
+        "京东": "y"
         },
         "快应用": {
           "华为": "y",
